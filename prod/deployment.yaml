@@ -14,7 +14,7 @@ spec:
         app: demo-nginx-app
     spec:
       containers:
-      - image: 870226762666.dkr.ecr.ap-northeast-2.amazonaws.com/web_image:0.1
+      - image: 870226762666.dkr.ecr.ap-northeast-2.amazonaws.com/cicd:latest
         name: demo-nginx-app
         ports:
         - containerPort: 80
