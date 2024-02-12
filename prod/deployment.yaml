@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: demo-cicd-nginx-app
+        app: demo-nginx-app
     spec:
       containers:
       - image: 870226762666.dkr.ecr.ap-northeast-2.amazonaws.com/web_image:0.1
