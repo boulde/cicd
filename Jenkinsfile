@@ -7,7 +7,7 @@ pipeline {
   environment {
     //dockerHubRegistry = 'ccamm1/demo-eks-cicd' 
     //dockerHubRegistryCredential = 'credential-dockerhub'
-    awsecrRegistry = '412144898273.dkr.ecr.ap-northeast-2.amazonaws.com/eks-demo-repo'
+    awsecrRegistry = 'public.ecr.aws/y4a3f6x2/eks-demo-repo'
     awsecrRegistryCredentail = 'credential-AWS-ECR'
     githubCredential = 'credential-github'
     gitEmail = 'rkakscjstk@gmail.com'
