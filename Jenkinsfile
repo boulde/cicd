@@ -91,10 +91,10 @@ pipeline {
         sh "git config --global user.name ${gitName}"
         sh "cd prod && kustomize edit set image ${awsecrRegistry}:${currentBuild.number}"
         sh "git add prod/kustomization.yaml"
-        sh "git commit -m 'fix:${dockerHubRegistry} ${currentBuild.number} image versioning'"
+        sh "git commit -m 'fix:${awsecrRegistry} ${currentBuild.number} image versioning'"
         sh "git branch -M main"
         sh "git remote remove origin"
-        sh "git remote add origin git@github.com:mini-cicd-project/mini-cicd-project.git"
+        sh "git remote add origin git@github.com:boulde/cicd.git"
         sh "git push -u origin main"
         
       }
