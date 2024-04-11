@@ -91,8 +91,8 @@ pipeline {
         sh "git config --global user.name ${gitName}"
         //sh "cd prod && kustomize edit set image ${awsecrRegistry}:${currentBuild.number}"
         //sh "git add prod/kustomization.yaml"
-        sh "sed -i 's/eks-demo-repo:.*/eks-demo-repo:${currentBuild.number}/g' prod/deployment.yaml
-        sh "git add *"
+        sh "sed -i 's/eks-demo-repo:.*/eks-demo-repo:${currentBuild.number}/g' prod/deployment.yaml"
+        sh "git add ."
         sh "git commit -m 'fix:${awsecrRegistry} ${currentBuild.number} image versioning'"
         sh "git branch -M main"
         sh "git remote remove origin"
