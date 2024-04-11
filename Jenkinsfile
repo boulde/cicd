@@ -12,7 +12,7 @@ pipeline {
     githubCredential = 'credential-github'
     gitEmail = 'rkakscjstk@gmail.com'
     gitName = 'boulde'
-    previousTAG = sh "echo 'expr ${BUILD_NUMBER} -1'"
+    previousTAG = sh "echo 'expr ${currentBuild.number} -1'"
   }
 
   stages {
@@ -91,12 +91,12 @@ pipeline {
         sh "git config --global user.email ${gitEmail}"
         sh "git config --global user.name ${gitName}"
         sh "cd prod"
-        sh "sed -i 's/eks-demo-repo:${previousTAG}/eks-demo-repo:${currentBuild.number}/g' prod/deployment.yaml"
+        sh "sed -i 's/eks-demo-repo:${previousTAG}/eks-demo-repo:${currentBuild.number}/g' deployment.yaml"
         //sh "cd prod && kustomize edit set image ${awsecrRegistry}:${currentBuild.number}"
-        sh "git add *"
+        sh "git add deployment.yaml"
         sh "git status"
         sh "git commit -m 'update the image tag'"
-        //sh "git branch -M main"
+        sh "git branch -M main"
         sh "git push origin main"
         
       }
