@@ -90,7 +90,7 @@ pipeline {
         sh "git config --global user.email ${gitEmail}"
         sh "git config --global user.name ${gitName}"
         sh "cd prod && kustomize edit set image ${awsecrRegistry}:${currentBuild.number}"
-        sh "git add kustomization.yaml"
+        sh "git add ."
         sh "git commit -m 'fix:${awsecrRegistry} ${currentBuild.number} image versioning'"
         sh "git branch -M main"
         //sh "git remote remove origin"
