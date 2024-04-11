@@ -82,7 +82,7 @@ pipeline {
     stage('Deploy') { 
       steps {
         // git 계정 로그인, 해당 레포지토리의 main 브랜치에서 클론
-        git credentialsId: githubCredential, passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME'
+        git credentialsId: githubCredential, 
             url: 'https://github.com/boulde/cicd.git',
             branch: 'main'  
         
@@ -95,7 +95,7 @@ pipeline {
         sh "git branch -M main"
         //sh "git remote remove origin"
         //sh "git remote add origin git@github.com:boulde/cicd.git"
-        sh "git push https://${GIT_PASSWORD}@github.com/${GIT_USERNAME}/cicd.git"
+        sh "git push origin main"
       }
       post {
         failure {
