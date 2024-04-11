@@ -92,7 +92,7 @@ pipeline {
         sh "git checkout main"
         sh "cd prod && kustomize edit set image ${awsecrRegistry}:${currentBuild.number}"
         sh "git commit -a -m 'update the image tag'"
-        sh "git push"
+        sh "git push --set-upstream origin main"
         
       }
     }
