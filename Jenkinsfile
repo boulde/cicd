@@ -12,7 +12,7 @@ pipeline {
     githubCredential = 'credential-github'
     gitEmail = 'rkakscjstk@gmail.com'
     gitName = 'boulde'
-    previousTAG = sh "echo 'expr ${BUILD_NUMBER} -1'
+    previousTAG = sh "echo 'expr ${BUILD_NUMBER} -1'"
   }
 
   stages {
