@@ -90,11 +90,11 @@ pipeline {
         sh "git config --global user.email ${gitEmail}"
         sh "git config --global user.name ${gitName}"
         sh "cd prod && kustomize edit set image ${awsecrRegistry}:${currentBuild.number}"
-        sh "git add ./kustomization.yaml"
-        sh "git status"
+        //sh "git add ./kustomization.yaml"
+        //sh "git status"
         sh "git commit -m 'update the image tag'"
-        sh "git branch -M main"
-        sh "git push origin main"
+        //sh "git branch -M main"
+        sh "git push"
         
       }
     }
