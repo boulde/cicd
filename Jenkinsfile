@@ -95,7 +95,10 @@ pipeline {
         sh "git branch -M main"
         //sh "git remote remove origin"
         //sh "git remote add origin git@github.com:boulde/cicd.git"
-        sh "git push -u origin main"
+        //sh "git push -u origin main"
+        withCredentials([usernamePassword(credentialsId: 'githubCredential', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+            sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@cicd'
+}
       }
       post {
         failure {
