@@ -93,8 +93,8 @@ pipeline {
         sh "git add *"
         sh "git status"
         sh "git commit -m 'update the image tag'"
-        sh "git branch -M main"
-        sh "git push origin main"
+        //sh "git branch -M main"
+        sh "git push -u origin main"
         
       }
     }
