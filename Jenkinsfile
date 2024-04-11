@@ -85,7 +85,7 @@ pipeline {
         git credentialsId: githubCredential,
             url: 'https://github.com/boulde/cicd.git',
             branch: 'main'  
-        withCredentials([usernamePassword(credentialsId: 'git-pass-credentials-ID', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')])
+        withCredentials([usernamePassword(credentialsId: 'githubCredential', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')])
         // 이미지 태그 변경 후 메인 브랜치에 푸시
         sh "git config --global user.email ${gitEmail}"
         sh "git config --global user.name ${gitName}"
@@ -93,8 +93,8 @@ pipeline {
         sh "git add prod/kustomization.yaml"
         sh "git commit -m 'fix:${awsecrRegistry} ${currentBuild.number} image versioning'"
         sh "git branch -M main"
-        sh "git remote remove origin"
-        sh "git remote add origin git@github.com:boulde/cicd.git"
+        //sh "git remote remove origin"
+        //sh "git remote add origin git@github.com:boulde/cicd.git"
         sh "git push -u origin main"
         
       }
