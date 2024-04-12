@@ -95,7 +95,7 @@ pipeline {
         sh "git branch -M main"
         //sh "git remote remove origin"
         //sh "git remote add origin git@github.com:boulde/cicd.git"
-        sh "git push https://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@github.com/boulde/cicd.git"
+        sh "git push origin main"
       }
       post {
         failure {
