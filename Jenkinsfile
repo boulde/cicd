@@ -87,7 +87,7 @@ pipeline {
             branch: 'main'  
 
         script{
-                  previousTAG = sh(script: "echo 'expr $(BUILD_NUMBER) - 1'", returnStdout: true).trim()
+                  previousTAG = sh(script: "echo 'expr ${BUILD_NUMBER} - 1'", returnStdout: true).trim()
         }
         // 이미지 태그 변경 후 메인 브랜치에 푸시
         sh "git config --global user.email ${gitEmail}"
