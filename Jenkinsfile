@@ -89,7 +89,7 @@ pipeline {
         // 이미지 태그 변경 후 메인 브랜치에 푸시
         sh "git config --global user.email ${gitEmail}"
         sh "git config --global user.name ${gitName}"
-        sh "sed -i 's/eks-demo-repo:*/eks-demo-repo:${BUILD_NUMBER}/g prod/deployment.yaml"
+        sh "sed -i 's/eks-demo-repo:*/eks-demo-repo:${BUILD_NUMBER}/g' prod/deployment.yaml"
         //sh "cd prod && kustomize edit set image ${awsecrRegistry}:${currentBuild.number}"
         sh "git add prod/deployment.yaml"
         sh "git commit -m 'fix:${awsecrRegistry} ${currentBuild.number} image versioning'"
