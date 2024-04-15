@@ -1,8 +1,6 @@
 version: 0.2
 phases:
-  install:
-    runtime-versions:
-      docker: 20
+  pre_build:
     commands:
       - curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
       - chmod +x ./kubectl
@@ -10,8 +8,6 @@ phases:
       - mkdir ~/.kube
       - aws eks --region ap-northeast-2 update-kubeconfig --name eks-cluster-2
       - kubectl get pod -n kube-system
-  pre_build:
-    commands:
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/
   build:
     commands:
